@@ -19,7 +19,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 Para baixar o script, siga estas etapas:
 
 ```
-git clone https://github.com/Jakevoided/shell-suse.git
+git clone https://github.com/Jakedystopia/shell-suse.git
 ```
 ## ☕ Usando o script
 

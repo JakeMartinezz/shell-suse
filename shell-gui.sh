@@ -52,6 +52,7 @@ function remover_pacotes() {
         dosbox
         evolution
         evince
+        gimp
         opensuse-welcome
         cheese
         baobab

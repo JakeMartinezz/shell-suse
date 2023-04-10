@@ -1,7 +1,7 @@
 # Shell script opensuse
 
-![Shell script](https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![Linux Badge](https://img.shields.io/badge/Linux-121011?style=for-the-badge&logo=linux&logoColor=white)
+![Shell script](https://img.shields.io/badge/Shell_Script-0d1117?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![Linux Badge](https://img.shields.io/badge/Linux-0d1117?style=for-the-badge&logo=linux&logoColor=white)
 
 <img src="img.png" alt="start page">
 

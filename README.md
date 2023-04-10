@@ -3,6 +3,8 @@
 ![Shell script](https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ![Linux Badge](https://img.shields.io/badge/Linux-121011?style=for-the-badge&logo=linux&logoColor=white)
 
+<img src="img.png" alt="start page">
+
 > Configuração pos instalação do Opensuse tumbleweed usando shell script.
 
 ### O projeto

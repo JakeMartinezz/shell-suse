@@ -1,0 +1,138 @@
+game:
+  arch: win64
+  exe: /home/jake/Discos/Utilitario/Prefixos/overwatch/drive_c/Program Files (x86)/Battle.net/Battle.net.exe
+  prefix: ~/Discos/Utilitario/Prefixos/overwatch
+game_slug: battlenet
+name: Blizzard Battle.net
+requires: null
+script:
+  files:
+  - bnsetup:
+      filename: Battle.net-Setup.exe
+      url: https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live
+  game:
+    arch: win64
+    exe: drive_c/Program Files (x86)/Battle.net/Battle.net.exe
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      arch: win64
+      install_gecko: 'False'
+      install_mono: 'False'
+      prefix: /home/jake/Games/b
+      wine_path: /home/jake/.local/share/lutris/runners/wine/lutris-GE-Proton7-43-x86_64/bin/wine
+  - task:
+      arch: win64
+      key: background
+      path: HKEY_CURRENT_USER\Control Panel\Colors\
+      prefix: /home/jake/Games/b
+      type: REG_SZ
+      value: 0 0 0
+      wine_path: /home/jake/.local/share/lutris/runners/wine/lutris-GE-Proton7-43-x86_64/bin/wine
+  - task:
+      arch: win64
+      args: /desktop=BattleNet,1024x780 /home/jake/Downloads/Overwatch-Setup.exe
+      env:
+        DXVK_CONFIG_FILE: /home/jake/Games/b/dxvk.conf
+        DXVK_STATE_CACHE_PATH: /home/jake/Games/b
+        STAGING_SHARED_MEMORY: '1'
+        __GL_DXVK_OPTIMIZATIONS: '1'
+        __GL_SHADER_DISK_CACHE: '1'
+        __GL_SHADER_DISK_CACHE_PATH: /home/jake/Games/b
+      executable: /home/jake/Games/b/drive_c/windows/explorer.exe
+      include_processes: explorer.exe
+      prefix: /home/jake/Games/b
+      wine_path: /home/jake/.local/share/lutris/runners/wine/lutris-GE-Proton7-43-x86_64/bin/wine
+  - task:
+      app: arial win10
+      arch: win64
+      prefix: /home/jake/Games/b
+      silent: 'True'
+      wine_path: /home/jake/.local/share/lutris/runners/wine/lutris-GE-Proton7-43-x86_64/bin/wine
+  - write_file:
+      content: 'dxgi.nvapiHack = False
+
+        [Overwatch.exe]
+
+        dxvk.hud = compiler'
+      file: $GAMEDIR/dxvk.conf
+  - write_json:
+      data:
+        Client:
+          GameLaunchWindowBehavior: '2'
+          GameSearch:
+            BackgroundSearch: 'true'
+          HardwareAcceleration: 'false'
+          Sound:
+            Enabled: 'false'
+          Streaming:
+            StreamingEnabled: 'false'
+      file: $GAMEDIR/drive_c/users/$USER/AppData/Roaming/Battle.net/Battle.net.config
+  - write_config:
+      file: $GAMEDIR/drive_c/users/$USER/Documents/Overwatch/Settings/Settings_v0.ini
+      key: WindowMode
+      section: Render.13
+      value: '"1"'
+  - write_config:
+      file: $GAMEDIR/drive_c/users/$USER/Documents/Overwatch/Settings/Settings_v0.ini
+      key: Type
+      section: MovieExport.1
+      value: '"1"'
+  - write_config:
+      file: $GAMEDIR/drive_c/users/$USER/Documents/Overwatch/Settings/Settings_v0.ini
+      key: UseHardware
+      section: MovieExport.1
+      value: '"0"'
+  - write_file:
+      content: hasseennewcinematic=True
+      file: $GAMEDIR/drive_c/users/$USER/AppData/Local/Blizzard/Hearthstone/options.txt
+  - task:
+      arch: win64
+      key: version
+      path: HKEY_CURRENT_USER\Software\Wine\AppDefaults\BlizzardBrowser.exe
+      prefix: /home/jake/Games/b
+      type: REG_SZ
+      value: win7
+      wine_path: /home/jake/.local/share/lutris/runners/wine/lutris-GE-Proton7-43-x86_64/bin/wine
+  - task:
+      arch: win64
+      key: backend
+      path: HKEY_CURRENT_USER\Software\Wine\DXVA2
+      prefix: /home/jake/Games/b
+      value: va
+      wine_path: /home/jake/.local/share/lutris/runners/wine/lutris-GE-Proton7-43-x86_64/bin/wine
+  - task:
+      arch: win64
+      key: csmt
+      path: HKEY_CURRENT_USER\Software\Wine\Direct3D\
+      prefix: /home/jake/Games/b
+      type: REG_DWORD
+      value: '00000000'
+      wine_path: /home/jake/.local/share/lutris/runners/wine/lutris-GE-Proton7-43-x86_64/bin/wine
+  system:
+    env:
+      DXVK_CONFIG_FILE: $GAMEDIR/dxvk.conf
+      DXVK_STATE_CACHE_PATH: $GAMEDIR
+      STAGING_SHARED_MEMORY: 1
+      __GL_DXVK_OPTIMIZATIONS: 1
+      __GL_SHADER_DISK_CACHE: 1
+      __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+  wine:
+    version: lutris-GE-Proton7-43-x86_64
+slug: blizzard-battlenet-standard
+system:
+  env:
+    DXVK_CONFIG_FILE: /home/jake/Games/b/dxvk.conf
+    DXVK_STATE_CACHE_PATH: /home/jake/Games/b
+    STAGING_SHARED_MEMORY: '1'
+    __GL_DXVK_OPTIMIZATIONS: '1'
+    __GL_SHADER_DISK_CACHE: '1'
+    __GL_SHADER_DISK_CACHE_PATH: /home/jake/Games/b
+variables: {}
+version: standard
+wine:
+  battleye: false
+  eac: false
+  fsr: false
+  version: lutris-GE-Proton7-43-x86_64
+year: 1996

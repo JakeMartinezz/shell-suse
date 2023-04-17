@@ -1,0 +1,69 @@
+game:
+  arch: win64
+  exe: /home/jake/Discos/Utilitario/Prefixos/warframe/Launcher.exe
+  prefix: ~/Discos/Utilitario/Prefixos/warframe
+game_slug: warframe
+name: Warframe
+requires: null
+script:
+  files:
+  - wfinstaller: http://content.warframe.com/dl/Warframe.msi
+  game:
+    arch: win64
+    exe: $GAMEDIR/drive_c/users/$USER/Local Settings/AppData/Local/Warframe/Downloaded/Public/Tools/Launcher.exe
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      arch: win64
+      prefix: /home/jake/Games/warframe
+      wine_path: /home/jake/.local/share/lutris/runners/wine/lutris-7.2-2-x86_64/bin/wine
+  - copy:
+      dst: $CACHE/wfinstaller/
+      src: wfinstaller
+  - task:
+      arch: win64
+      args: /i "/home/jake/.cache/lutris/installer/warframe/wfinstaller/Warframe.msi"
+        /q
+      env:
+        PBA_DISABLE: '0'
+        WINEDLLOVERRIDES: libglesv2=d
+        __GL_SHADER_DISK_CACHE: '1'
+        __GL_SHADER_DISK_CACHE_PATH: /home/jake/Games/warframe
+        __GL_THREADED_OPTIMIZATIONS: '1'
+        mesa_glthread: 'true'
+      executable: msiexec
+      prefix: /home/jake/Games/warframe
+      wine_path: /home/jake/.local/share/lutris/runners/wine/lutris-7.2-2-x86_64/bin/wine
+  system:
+    env:
+      PBA_DISABLE: 0
+      WINEDLLOVERRIDES: libglesv2=d
+      __GL_SHADER_DISK_CACHE: 1
+      __GL_SHADER_DISK_CACHE_PATH: $GAMEDIR
+      __GL_THREADED_OPTIMIZATIONS: 1
+      mesa_glthread: 'true'
+    pulse_latency: true
+  wine:
+    dxvk: true
+    esync: true
+    version: lutris-7.2-2-x86_64
+slug: warframe-standalone
+system:
+  env:
+    PBA_DISABLE: '0'
+    WINEDLLOVERRIDES: libglesv2=d
+    __GL_SHADER_DISK_CACHE: '1'
+    __GL_SHADER_DISK_CACHE_PATH: /home/jake/Discos/Utilitario/Prefixos/warframe
+    __GL_THREADED_OPTIMIZATIONS: '1'
+    mesa_glthread: 'true'
+  pulse_latency: true
+variables: {}
+version: Standalone
+wine:
+  battleye: false
+  dxvk: true
+  eac: false
+  esync: true
+  fsr: false
+  version: lutris-GE-Proton7-43-x86_64
+year: 2013

@@ -122,8 +122,8 @@ script:
 slug: blizzard-battlenet-standard
 system:
   env:
-    DXVK_CONFIG_FILE: /home/jake/Games/b/dxvk.conf
-    DXVK_STATE_CACHE_PATH: /home/jake/Games/b
+    DXVK_CONFIG_FILE: /home/jake/Discos/Utilitario/Prefixos/overwatch/dxvk.conf
+    DXVK_STATE_CACHE_PATH: /home/jake/Discos/Utilitario/Prefixos/overwatch
     STAGING_SHARED_MEMORY: '1'
     __GL_DXVK_OPTIMIZATIONS: '1'
     __GL_SHADER_DISK_CACHE: '1'

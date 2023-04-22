@@ -113,7 +113,7 @@ function copiar_tema() {
         mkdir -p /home/$USER/.config/BetterDiscord &&
         cp -r BetterDiscord/ /home/$USER/.config/ &&
         sudo mkdir -p /usr/lib64/discord/resources &&
-        sudo cp app.asar /usr/lib64/discord/resources &&
+        sudo cp ./BetterDiscord/app.asar /usr/lib64/discord/resources &&
         mkdir -p ~/.local/share/gedit/styles &&
         cp -r styles ~/.local/share/gedit &&
         mkdir -p "$HOME/.local/share/fonts/Microsoft/TrueType/Segoe UI" &&
@@ -143,6 +143,7 @@ function aplicar_tema() {
         gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Lavender-Dark' &&
         gsettings set org.gnome.desktop.interface icon-theme 'Win11' &&
         gsettings set org.gnome.desktop.interface cursor-theme 'Win-8.1-S'
+        gsettings set org.gnome.desktop.background picture-uri "file://$(pwd)/wallpaper.jpg"
 }
 
 function configurar_extensao() {

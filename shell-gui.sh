@@ -16,6 +16,7 @@ valid_functions=(
     "instalar_pacotes_flatpak"
     "remover_pacotes"
     "repositorios"
+    "presenca_discord"
 )
 
 # Array de funçoes
@@ -153,6 +154,10 @@ function configurar_extensao() {
 function configurar_lutris() {
         ln -s -v -r .config/lutris /home/$USER/.config &&
         ln -s -v -r lutris/ /home/$USER/.local/share 
+}
+
+function presenca_discord() {
+	cp -r rich\ presence/* /home/$USER/.config/autostart
 }
 
 # Mostra a caixa de dialogo para a escolha

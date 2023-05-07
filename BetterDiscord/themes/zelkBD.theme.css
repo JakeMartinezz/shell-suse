@@ -1,7 +1,7 @@
 /**
  * @name Zelk
- * @version 1.2.2
- * @description a smooth theme inspired by zorin
+ * @version 1.0
+ * @description Zelk Customized by me, with cattpuccin pallete
  * @author schnensch
  * @authorId 652801938374656013
  * @source https://github.com/schnensch0/zelk
@@ -38,6 +38,8 @@
   --font-display: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   --border-radius-1: 10px;
   --border-radius-2: 8px;
+  --gradientColor01: #00F260;
+  --gradientColor02: #0575E6;
 }
 /*-----------CUSTOM COLORS-----------*/
 /*-------------DARK MODE-------------*/
@@ -166,4 +168,27 @@
 }
 .root-8LYsGj[style*="--user-background"] .banner-1YaD3N {
   height: 240px;
+}
+
+#app-mount .childWrapper-1j_1ub {
+    background-color: #1a1b26 !important
+}
+
+#app-mount .tutorialContainer-1pL9QS .childWrapper-1j_1ub>svg {
+    display: none !important
+}
+
+#app-mount .tutorialContainer-1pL9QS .childWrapper-1j_1ub::after {
+    position: absolute;
+    content: "";
+    width: 36px;
+    height: 36px;
+    top: 6px;
+    left: 6px;
+    background-image: linear-gradient(-45deg, var(--gradientColor01), var(--gradientColor02));
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    -webkit-mask-box-image: url("https://i.imgur.com/6gPQfIO.png");
+    mask-image: url("https://i.imgur.com/6gPQfIO.png")
 }

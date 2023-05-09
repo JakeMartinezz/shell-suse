@@ -17,6 +17,7 @@ valid_functions=(
     "remover_pacotes"
     "repositorios"
     "presenca_discord"
+    "WOL"
 )
 
 # Array de funçoes
@@ -158,6 +159,27 @@ function configurar_lutris() {
 
 function presenca_discord() {
 	cp -r rich\ presence/* /home/$USER/.config/autostart
+}
+
+function WOL() {
+    sudo tee /etc/systemd/system/wol.service > /dev/null <<EOF
+[Unit]
+Description=Configure Wake-on-LAN
+Wants=network.target
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/ethtool -s enp6s0 wol g
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    sudo chmod 644 /etc/systemd/system/wol.service
+    sudo systemctl enable wol.service
+    sudo systemctl start wol.service
 }
 
 # Mostra a caixa de dialogo para a escolha

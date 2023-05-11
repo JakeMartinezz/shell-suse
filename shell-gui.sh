@@ -1,11 +1,22 @@
 #!/bin/bash
 
-# Executa a função selecionada
+# Selecionar Distribuição
+if zenity --question --text="Are you on OpenSUSE?"; then
+    package_manager="zypper"
+elif zenity --question --text="Are you on Fedora?"; then
+    package_manager="dnf"
+else
+    # Caso, distro nao for compátivel
+    zenity --error --text="Unsupported Linux distribution. Exiting."
+    exit 1
+fi
+
+# Executar funções
 if [[ -n "$selection" ]]; then
 	${valid_functions[$selection-1]}
 fi
 
-# Funçoes disponiveis no script
+# Funçoes Disponiveis
 valid_functions=(
     "aplicar_flatpak"
     "aplicar_tema"
@@ -64,7 +75,7 @@ function remover_pacotes() {
     )
 
     for package in "${packages[@]}"; do
-            sudo zypper remove -y "$package" 
+        sudo $package_manager remove -y "$package" 
     done
 }
 
@@ -89,18 +100,18 @@ function instalar_pacotes() {
     )
 
     for package in "${packages[@]}"; do
-            sudo zypper install -y "$package"
-        done
+        sudo $package_manager install -y "$package"
+    done
 }
 
 function repositorios() {
-        sudo zypper ar -cfp 90 https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ packman &&
-        sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
-        sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode &&
-        sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg &&
-        sudo zypper addrepo -g -f https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo &&
-        sudo zypper refresh &&
-        sudo zypper dup --from packman --allow-vendor-change
+    sudo $package_manager ar -cfp 90 https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ packman &&
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
+    sudo $package_manager addrepo https://packages.microsoft.com/yumrepos/vscode vscode &&
+    sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg &&
+    sudo $package_manager addrepo -g -f https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo &&
+    sudo $package_manager refresh &&
+    sudo $package_manager dup --from packman --allow-vendor-change
 }
 
 function copiar_tema() {

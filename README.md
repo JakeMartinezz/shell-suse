@@ -5,7 +5,7 @@
 
 <img src="./imagens/img.png" alt="Demo">
 
-> Configuração pos instalação do Opensuse tumbleweed usando shell script.
+> Configuração pos instalação do Opensuse tumbleweed e Fedora usando shell script.
 
 ### O projeto
 

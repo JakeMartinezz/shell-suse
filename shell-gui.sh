@@ -7,7 +7,7 @@ elif zenity --question --text="Você esta usando Fedora?"; then
     package_manager="dnf"
 else
     # Caso, distro nao for compátivel
-    zenity --error --text="Unsupported Linux distribution. Exiting."
+    zenity --error --text="Distro Não Compátivel."
     exit 1
 fi
 

@@ -94,6 +94,11 @@ Repositórios
 
 > Instala os repositorios Packman, Sublime-text e VScode e muda o vendor para Packman
 
+```
+Wake on Lan
+```
+> Função Wake on Lan configurada, apenes mude para seu adaptador.
+
 ## 📫 Contribua para o script!
 Para criar seu fork, siga estas etapas:
 

@@ -28,7 +28,7 @@ valid_functions=(
     "remover_pacotes"
     "repositorios"
     "presenca_discord"
-    "WOL"
+    "Wake_on_lan"
 )
 
 # Array de funçoes
@@ -173,7 +173,7 @@ function presenca_discord() {
 	cp -r rich\ presence/* /home/$USER/.config/autostart
 }
 
-function WOL() {
+function Wake_on_lan() {
     sudo tee /etc/systemd/system/wol.service > /dev/null <<EOF
 [Unit]
 Description=Configure Wake-on-LAN

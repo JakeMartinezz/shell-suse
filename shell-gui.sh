@@ -97,6 +97,7 @@ function instalar_pacotes() {
         code
         gh
         discord
+        sysconfig-netconfig
     )
 
     for package in "${packages[@]}"; do

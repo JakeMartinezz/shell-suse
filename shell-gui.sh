@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Selecionar Distribuição
-if zenity --question --text="Are you on OpenSUSE?"; then
+if zenity --question --text="Você esta usando OpenSUSE?"; then
     package_manager="zypper"
-elif zenity --question --text="Are you on Fedora?"; then
+elif zenity --question --text="Você esta usando Fedora?"; then
     package_manager="dnf"
 else
     # Caso, distro nao for compátivel

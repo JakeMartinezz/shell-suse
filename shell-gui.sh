@@ -1,17 +1,21 @@
 #!/bin/bash
 
-# Selecionar Distribuição
-if zenity --question --text="Você esta usando OpenSUSE?"; then
-    package_manager="zypper"
-elif zenity --question --text="Você esta usando Fedora?"; then
-    package_manager="dnf"
-else
-    # Caso, distro nao for compátivel
-    zenity --error --text="Distro Não Compátivel."
-    exit 1
-fi
+# Funções
 
-valid_functions=()
+function aplicar_flatpak() {
+    sudo flatpak override --filesystem=$HOME/.themes &&
+    sudo flatpak override --env=GTK_THEME=Catppuccin-Mocha-Standard-Lavender-Dark &&
+    flatpak --user override --filesystem=/home/$USER/.icons/:ro &&
+    flatpak --user override --filesystem=/usr/share/icons/:ro 
+}
+
+function aplicar_tema() {
+    gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Lavender-Dark' &&
+    gsettings set org.gnome.desktop.interface icon-theme 'Win11' &&
+    gsettings set org.gnome.desktop.interface cursor-theme 'Win-8.1-S'
+    gsettings set org.gnome.desktop.background picture-uri "file://$(pwd)/wallpaper.jpg"
+}
+
 function atualizar_funcoes_validas() {
     valid_functions=()
     while IFS= read -r line; do
@@ -21,12 +25,93 @@ function atualizar_funcoes_validas() {
     done < "$0"
 }
 
-if ! command -v zenity >/dev/null 2>&1; then
-    echo "O comando 'zenity' não está disponível. Por favor, instale-o."
-    exit 1
-fi
+function configurar_extensao() {
+    dconf load /org/gnome/shell/extensions/ < extensao.conf
+}
 
-# Array de funçoes
+function configurar_lutris() {
+    ln -s -v -r .config/lutris /home/$USER/.config &&
+    ln -s -v -r lutris/ /home/$USER/.local/share 
+}
+
+function copiar_tema() {
+    cp -r .icons /home/$USER/ &&
+    cp -r .themes /home/$USER/ &&
+    cp -r Equalizador.json /home/$USER/.config/easyeffects/output
+    cp -r .themes/Catppuccin-Mocha-Standard-Lavender-Dark/gtk-4.0 /home/$USER/.config &&
+    sudo cp -r .themes/Catppuccin-Mocha-Standard-Lavender-Dark /usr/share/themes &&
+    sudo cp -r .icons/Win11-dark /usr/share/icons &&
+    mkdir -p /home/$USER/.config/easyeffects/output &&
+    cp Equalizador.json /home/$USER/.config/easyeffects/output/ &&
+    mkdir -p /home/$USER/.config/BetterDiscord &&
+    cp -r BetterDiscord/ /home/$USER/.config/ &&
+    sudo mkdir -p /usr/lib64/discord/resources &&
+    sudo cp ./BetterDiscord/app.asar /usr/lib64/discord/resources &&
+    mkdir -p ~/.local/share/gedit/styles &&
+    cp -r styles ~/.local/share/gedit &&
+    mkdir -p "$HOME/.local/share/fonts/Microsoft/TrueType/Segoe UI" &&
+    cp -a ./fonte/. "$HOME/.local/share/fonts/Microsoft/TrueType/Segoe UI"
+}
+
+function instalar_pacotes() {
+    local packages=(
+        lutris
+        bleachbit
+        steam
+        htop
+        neofetch
+        gamemoded
+        libgamemode-devel
+        libgamemode0
+        libgamemode0-32bit
+        libgamemodeauto0
+        libgamemodeauto0-32bit
+        easyeffects
+        sublime-text
+        code
+        gh
+        discord
+        sysconfig-netconfig
+    )
+
+    for package in "${packages[@]}"; do
+        sudo $package_manager install -y "$package"
+    done
+}
+
+function instalar_pacotes_flatpak() {
+    local packages=(
+        com.vysp3r.ProtonPlus
+        com.mattjakeman.ExtensionManager
+        org.videolan.VLC
+    )
+
+    for package in "${packages[@]}"; do
+        sudo flatpak install flathub "$package" -y 
+    done
+}
+
+function main() {
+    while true; do
+        local selection=$(zenity --list --title="Shell-gui" --text="O que gostaria de fazer?" --column="Opções" "${valid_functions[@]}")
+
+        if [[ -n "$selection" ]]; then
+            # Executar a função selecionada
+            if [[ " ${valid_functions[@]} " =~ " ${selection} " ]]; then
+                "$selection"
+            else
+                echo "Função inválida: $selection"
+            fi
+        else
+            break
+        fi
+    done
+}
+
+function presenca_discord() {
+    cp -r rich\ presence/* /home/$USER/.config/autostart
+}
+
 function remover_pacotes() {
     local packages=(
         gnome-sudoku
@@ -66,37 +151,10 @@ function remover_pacotes() {
         baobab
         gpk-update-viewer
         tigervnc
-        
     )
 
     for package in "${packages[@]}"; do
         sudo $package_manager remove -y "$package" 
-    done
-}
-
-function instalar_pacotes() {
-    local packages=(
-        lutris
-        bleachbit
-        steam
-        htop
-        neofetch
-        gamemoded
-        libgamemode-devel
-        libgamemode0
-        libgamemode0-32bit
-        libgamemodeauto0
-        libgamemodeauto0-32bit
-        easyeffects
-        sublime-text
-        code
-        gh
-        discord
-        sysconfig-netconfig
-    )
-
-    for package in "${packages[@]}"; do
-        sudo $package_manager install -y "$package"
     done
 }
 
@@ -110,65 +168,7 @@ function repositorios() {
     sudo $package_manager dup --from packman --allow-vendor-change
 }
 
-function copiar_tema() {
-        cp -r .icons /home/$USER/ &&
-        cp -r .themes /home/$USER/ &&
-        cp -r Equalizador.json /home/$USER/.config/easyeffects/output
-        cp -r .themes/Catppuccin-Mocha-Standard-Lavender-Dark/gtk-4.0 /home/$USER/.config &&
-        sudo cp -r .themes/Catppuccin-Mocha-Standard-Lavender-Dark /usr/share/themes &&
-        sudo cp -r .icons/Win11-dark /usr/share/icons &&
-        mkdir -p /home/$USER/.config/easyeffects/output &&
-        cp Equalizador.json /home/$USER/.config/easyeffects/output/ &&
-        mkdir -p /home/$USER/.config/BetterDiscord &&
-        cp -r BetterDiscord/ /home/$USER/.config/ &&
-        sudo mkdir -p /usr/lib64/discord/resources &&
-        sudo cp ./BetterDiscord/app.asar /usr/lib64/discord/resources &&
-        mkdir -p ~/.local/share/gedit/styles &&
-        cp -r styles ~/.local/share/gedit &&
-        mkdir -p "$HOME/.local/share/fonts/Microsoft/TrueType/Segoe UI" &&
-        cp -a ./fonte/. "$HOME/.local/share/fonts/Microsoft/TrueType/Segoe UI"
-}
-
-function aplicar_flatpak() {
-        sudo flatpak override --filesystem=$HOME/.themes &&
-        sudo flatpak override --env=GTK_THEME=Catppuccin-Mocha-Standard-Lavender-Dark &&
-        flatpak --user override --filesystem=/home/$USER/.icons/:ro &&
-        flatpak --user override --filesystem=/usr/share/icons/:ro 
-}
-
-function instalar_pacotes_flatpak() {
-    local packages=(
-        com.vysp3r.ProtonPlus
-        com.mattjakeman.ExtensionManager
-        org.videolan.VLC
-    )
-
-    for package in "${packages[@]}"; do
-            sudo flatpak install flathub "$package" -y 
-    done
-}
-
-function aplicar_tema() {
-        gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Lavender-Dark' &&
-        gsettings set org.gnome.desktop.interface icon-theme 'Win11' &&
-        gsettings set org.gnome.desktop.interface cursor-theme 'Win-8.1-S'
-        gsettings set org.gnome.desktop.background picture-uri "file://$(pwd)/wallpaper.jpg"
-}
-
-function configurar_extensao() {
-        dconf load /org/gnome/shell/extensions/ < extensao.conf
-}
-
-function configurar_lutris() {
-        ln -s -v -r .config/lutris /home/$USER/.config &&
-        ln -s -v -r lutris/ /home/$USER/.local/share 
-}
-
-function presenca_discord() {
-	cp -r rich\ presence/* /home/$USER/.config/autostart
-}
-
-function Wake_on_lan() {
+function wake_on_lan() {
     sudo tee /etc/systemd/system/wol.service > /dev/null <<EOF
 [Unit]
 Description=Configure Wake-on-LAN
@@ -189,8 +189,7 @@ EOF
     sudo systemctl start wol.service
 }
 
-# Mostra a caixa de diálogo para a escolha
-function main() {
+function zenity_interface() {
     while true; do
         local selection=$(zenity --list --title="Shell-gui" --text="O que gostaria de fazer?" --column="Opções" "${valid_functions[@]}")
 
@@ -207,8 +206,26 @@ function main() {
     done
 }
 
+# Selecionar Distribuição
+if zenity --question --text="Você está usando OpenSUSE?"; then
+    package_manager="zypper"
+elif zenity --question --text="Você está usando Fedora?"; then
+    package_manager="dnf"
+else
+    # Caso a distribuição não seja compatível
+    zenity --error --text="Distro Não Compátivel."
+    exit 1
+fi
+
+if ! command -v zenity >/dev/null 2>&1; then
+    echo "O comando 'zenity' não está disponível. Por favor, instale-o."
+    exit 1
+fi
+
+valid_functions=()
+
 # Atualizar a lista de funções válidas
 atualizar_funcoes_validas
 
-main
+zenity_interface
 

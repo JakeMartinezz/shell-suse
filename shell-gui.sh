@@ -11,25 +11,20 @@ else
     exit 1
 fi
 
-# Executar funções
-if [[ -n "$selection" ]]; then
-	${valid_functions[$selection-1]}
-fi
+valid_functions=()
+function atualizar_funcoes_validas() {
+    valid_functions=()
+    while IFS= read -r line; do
+        if [[ "$line" =~ ^function[[:space:]]+([[:alnum:]_]+)[[:space:]]*\(\) ]]; then
+            valid_functions+=("${BASH_REMATCH[1]}")
+        fi
+    done < "$0"
+}
 
-# Funçoes Disponiveis
-valid_functions=(
-    "aplicar_flatpak"
-    "aplicar_tema"
-    "configurar_extensao"
-    "configurar_lutris"
-    "copiar_tema"
-    "instalar_pacotes"
-    "instalar_pacotes_flatpak"
-    "remover_pacotes"
-    "repositorios"
-    "presenca_discord"
-    "Wake_on_lan"
-)
+if ! command -v zenity >/dev/null 2>&1; then
+    echo "O comando 'zenity' não está disponível. Por favor, instale-o."
+    exit 1
+fi
 
 # Array de funçoes
 function remover_pacotes() {
@@ -194,20 +189,26 @@ EOF
     sudo systemctl start wol.service
 }
 
-# Mostra a caixa de dialogo para a escolha
+# Mostra a caixa de diálogo para a escolha
 function main() {
-    local options=("${valid_functions[@]}")
-
     while true; do
-        local selection=$(zenity --list --title="Shell-gui" --text="O que gostaria de fazer?" --column="Opções" "${options[@]}")
+        local selection=$(zenity --list --title="Shell-gui" --text="O que gostaria de fazer?" --column="Opções" "${valid_functions[@]}")
 
         if [[ -n "$selection" ]]; then
-            ${selection}
+            # Executar a função selecionada
+            if [[ " ${valid_functions[@]} " =~ " ${selection} " ]]; then
+                "$selection"
+            else
+                echo "Função inválida: $selection"
+            fi
         else
             break
         fi
     done
 }
+
+# Atualizar a lista de funções válidas
+atualizar_funcoes_validas
 
 main
 

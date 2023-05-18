@@ -1,14 +1,14 @@
 {
     "output": {
         "blocklist": [],
-        "equalizer": {
+        "equalizer#0": {
             "balance": 0.0,
             "bypass": false,
             "input-gain": -13.0,
             "left": {
                 "band0": {
                     "frequency": 20.0,
-                    "gain": 14.19,
+                    "gain": 15.22,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 4.36,
@@ -18,7 +18,7 @@
                 },
                 "band1": {
                     "frequency": 40.0,
-                    "gain": 5.6,
+                    "gain": 7.8,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 4.36,
@@ -78,7 +78,7 @@
                 },
                 "band2": {
                     "frequency": 63.0,
-                    "gain": 5.7,
+                    "gain": 8.75,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 4.36,
@@ -165,7 +165,7 @@
             "right": {
                 "band0": {
                     "frequency": 20.0,
-                    "gain": 14.19,
+                    "gain": 15.22,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 4.36,
@@ -175,7 +175,7 @@
                 },
                 "band1": {
                     "frequency": 40.0,
-                    "gain": 5.6,
+                    "gain": 7.8,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 4.36,
@@ -235,7 +235,7 @@
                 },
                 "band2": {
                     "frequency": 63.0,
-                    "gain": 5.7,
+                    "gain": 8.75,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 4.36,
@@ -317,7 +317,7 @@
             "split-channels": false
         },
         "plugins_order": [
-            "equalizer"
+            "equalizer#0"
         ]
     }
 }

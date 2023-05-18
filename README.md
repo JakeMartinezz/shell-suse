@@ -30,11 +30,6 @@ Para usar o script, siga estas etapas:
 ```
 Todas as funçoes estão listadas, apenas clique em ok e a função ira rodar
 ```
-> Script Shell
-
-```
-Use o comando ajuda para ver as funçoes disponiveis e digite as, podendo usar multiplas funçoes, separando as por espaço
-```
 
 ## 🕔 Lista de funções
 

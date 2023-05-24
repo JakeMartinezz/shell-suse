@@ -37,14 +37,20 @@ Todas as funçoes estão listadas, apenas clique em ok e a função ira rodar
 Aplicar flatpak
 ```
 
-> Dá permissão ao flatpak sobre os icones e o tema GTK
+> Aplica algumas configurações específicas do Flatpak, como sobrescrever permissões de sistema
 
 ```
 Aplicar Tema
 ```
 
-> Usa o gsettings para aplicar o tema GTK e cursor
+> Configura o tema GTK, o tema de ícones e o tema do cursor, além de definir uma imagem de plano de fundo.
 
+
+```
+Atualizar Funçoes
+```
+
+> Esta função atualiza a lista de funções válidas com base nas funções definidas no próprio script.
 
 ```
 Configurar extensao
@@ -63,36 +69,40 @@ Configurar Lutris
 Copiar Tema
 ```
 
-> Copia o tema Catppuccin e cursor para as respectivas pastas
+> copia arquivos de temas e icones  para suas respectivas pastas no sistema.
 
 ```
 Instalar Pacotes
 ```
 
-> Usar o zypper para instalar diversos pacotes como, lutris steam, sublime text...
+> Instala uma lista de pacotes usando o gerenciador de pacotes do sistema, como sublime-text, steam
 
 ```
 Instalar Pacotes Flatpak
 ```
 
-> Instala os pacotes Protonplus, ExtensionManager e o VLC
+> Instala pacotes Flatpak a partir do Flathub, como, Protonplus, ExtensionManager e o VLC
 
+```
+Presença Discord
+```
+> Copia arquivos relacionados à presença personalizada do Discord 
 ```
 Remover Pacotes
 ```
 
-> Remove pacotes do gnome, como sudoku, mahjongg, mines, seahorse
+> Remove uma lista de pacotes usando o gerenciador de pacotes do sistema. Os pacotes incluem vários aplicativos GNOME
 
 ```
 Repositórios
 ```
 
-> Instala os repositorios Packman, Sublime-text e VScode e muda o vendor para Packman
+> Esta função adiciona repositórios de terceiros ao gerenciador de pacotes do sistema, como o Packman, o VS Code e o Sublime Text.
 
 ```
 Wake on Lan
 ```
-> Função Wake on Lan configurada, apenes mude para seu adaptador.
+> Esta função configura o Wake-on-LAN (WoL) para uma interface de rede específica.
 
 ## 📫 Contribua para o script!
 Para criar seu fork, siga estas etapas:

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Funções
+# Array de funçoes
 
 function aplicar_flatpak() {
     sudo flatpak override --filesystem=$HOME/.themes &&
@@ -189,6 +189,8 @@ EOF
     sudo systemctl start wol.service
 }
 
+# Fim do Array
+
 function zenity_interface() {
     while true; do
         local selection=$(zenity --list --title="Shell-gui" --text="O que gostaria de fazer?" --column="Opções" "${valid_functions[@]}")
@@ -216,7 +218,7 @@ else
     zenity --error --text="Distro Não Compátivel."
     exit 1
 fi
-
+   # Caso zenity não estiver instalado
 if ! command -v zenity >/dev/null 2>&1; then
     echo "O comando 'zenity' não está disponível. Por favor, instale-o."
     exit 1
@@ -224,7 +226,6 @@ fi
 
 valid_functions=()
 
-# Atualizar a lista de funções válidas
 atualizar_funcoes_validas
 
 zenity_interface

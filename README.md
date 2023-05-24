@@ -91,13 +91,13 @@ Presença Discord
 Remover Pacotes
 ```
 
-> Remove uma lista de pacotes usando o gerenciador de pacotes do sistema. Os pacotes incluem vários aplicativos GNOME
+> Remove uma lista de pacotes, os pacotes incluem vários aplicativos GNOME
 
 ```
 Repositórios
 ```
 
-> Esta função adiciona repositórios de terceiros ao gerenciador de pacotes do sistema, como o Packman, o VS Code e o Sublime Text.
+> Esta função adiciona repositórios, como o Packman, o VS Code e o Sublime Text.
 
 ```
 Wake on Lan

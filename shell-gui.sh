@@ -37,7 +37,7 @@ function configurar_lutris() {
 function copiar_tema() {
     cp -r .icons /home/$USER/ &&
     cp -r .themes /home/$USER/ &&
-    cp -r ./Equalizadores/* /home/$USER/.config/easyeffects/output
+    cp -r ./Equalizadores/* /home/$USER/.config/easyeffects/
     cp -r .themes/Catppuccin-Mocha-Standard-Lavender-Dark/gtk-4.0 /home/$USER/.config &&
     sudo cp -r .themes/Catppuccin-Mocha-Standard-Lavender-Dark /usr/share/themes &&
     sudo cp -r .icons/Win11-dark /usr/share/icons &&

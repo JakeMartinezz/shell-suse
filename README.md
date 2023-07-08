@@ -84,6 +84,12 @@ Instalar Pacotes Flatpak
 > Instala pacotes Flatpak a partir do Flathub, como, Protonplus, ExtensionManager e o VLC
 
 ```
+Keybinds
+```
+
+> Adiciona atalhos para as funçoes de mudar de janela, fechar janela, microfone e captura de tela
+
+```
 Presença Discord
 ```
 > Copia arquivos relacionados à presença personalizada do Discord 

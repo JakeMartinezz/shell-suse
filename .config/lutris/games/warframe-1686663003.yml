@@ -1,7 +1,7 @@
 game:
   arch: win64
   exe: /home/jake/discos/Utilitario/Prefixos/warframe/drive_c/Program Files/Warframe/Launcher.exe
-  prefix: /home/jake/discos/Utilitario/Prefixos/warframe
+  prefix: /home/Jake/discos/Utilitario/Prefixos/warframe
 game_slug: warframe
 name: Warframe
 requires: null
@@ -56,6 +56,7 @@ system:
     __GL_SHADER_DISK_CACHE_PATH: /home/jake/discos/Utilitario/Prefixos/warframe
     __GL_THREADED_OPTIMIZATIONS: '1'
     mesa_glthread: 'true'
+  game_path: /home/Jake/discos/Utilitario/Prefixos/warframe
   pulse_latency: true
 variables: {}
 version: Standalone

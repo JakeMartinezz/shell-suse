@@ -174,6 +174,18 @@ function repositorios() {
     sudo $package_manager dup --from packman --allow-vendor-change
 }
 
+function trocar_nome_host() {
+    novo_nome=$(zenity --entry --title="Trocar Nome do Host" --text="Digite o novo nome do host:")
+    
+    if [[ -n "$novo_nome" ]]; then
+        sudo hostnamectl set-hostname "$novo_nome"
+        zenity --info --text="Nome do host alterado para: $novo_nome"
+    else
+        zenity --error --text="Nenhum nome de host fornecido."
+    fi
+}    
+
+
 function wake_on_lan() {
     sudo tee /etc/systemd/system/wol.service > /dev/null <<EOF
 [Unit]

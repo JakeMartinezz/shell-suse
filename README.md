@@ -45,7 +45,6 @@ Aplicar Tema
 
 > Configura o tema GTK, o tema de ícones e o tema do cursor, além de definir uma imagem de plano de fundo.
 
-
 ```
 Atualizar Funçoes
 ```
@@ -63,7 +62,6 @@ Configurar Lutris
 ```
 
 > Cria um symlink para a pasta do lutris
-
 
 ```
 Copiar Tema
@@ -104,6 +102,11 @@ Repositórios
 ```
 
 > Esta função adiciona repositórios, como o Packman, o VS Code e o Sublime Text.
+
+```
+Trocar Hostname
+```
+> Permite ao usuário trocar o nome do host do sistema.
 
 ```
 Wake on Lan

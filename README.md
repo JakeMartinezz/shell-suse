@@ -126,7 +126,7 @@ Como alternativa, consulte a documentação do GitHub em [como criar uma solicit
 
 ## 🎉 Notas
 
-> Sou um programador inicante tentando suprir minhas necessidades de automaçoes
+> Sou um programador tentando suprir minhas necessidades de automaçoes
 
 > Assinado: Jake
 

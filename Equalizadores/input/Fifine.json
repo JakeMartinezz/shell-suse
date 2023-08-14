@@ -1,5 +1,16 @@
 {
     "input": {
+        "bass_enhancer#0": {
+            "amount": 1.1999999999999997,
+            "blend": 0.0,
+            "bypass": false,
+            "floor": 20.0,
+            "floor-active": false,
+            "harmonics": 8.5,
+            "input-gain": 8.5,
+            "output-gain": 0.0,
+            "scope": 100.0
+        },
         "blocklist": [],
         "equalizer#0": {
             "balance": 0.0,
@@ -656,23 +667,10 @@
             },
             "split-channels": false
         },
-        "pitch#0": {
-            "anti-alias": false,
-            "bypass": false,
-            "input-gain": 12.7,
-            "output-gain": 0.0,
-            "overlap-length": 8,
-            "quick-seek": false,
-            "rate-difference": 0.0,
-            "seek-window": 15,
-            "semitones": 0.0,
-            "sequence-length": 40,
-            "tempo-difference": 0.0
-        },
         "plugins_order": [
             "equalizer#0",
             "rnnoise#0",
-            "pitch#0"
+            "bass_enhancer#0"
         ],
         "rnnoise#0": {
             "bypass": false,

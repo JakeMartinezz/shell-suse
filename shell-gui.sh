@@ -108,10 +108,10 @@ function main() {
 }
 
 function keybinds() {
-gsettings set org.gnome.settings-daemon.plugins.media-keys mic-mute "['Page_up']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys mic-mute "['Page_down']"
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>4']" 
-gsettings set org.gnome.shell.keybindings show-screenshot-ui ["'Page_down'"] 
+gsettings set org.gnome.shell.keybindings show-screenshot-ui ["'Page_up'"] 
 }
 
 function presenca_discord() {

@@ -15,7 +15,7 @@
         "equalizer#0": {
             "balance": 0.0,
             "bypass": false,
-            "input-gain": 4.3,
+            "input-gain": 0.0,
             "left": {
                 "band0": {
                     "frequency": 22.4,
@@ -35,7 +35,7 @@
                     "q": 4.36,
                     "slope": "x1",
                     "solo": false,
-                    "type": "Hi-shelf"
+                    "type": "Hi-pass"
                 },
                 "band10": {
                     "frequency": 194.06,
@@ -105,7 +105,7 @@
                     "q": 4.36,
                     "slope": "x1",
                     "solo": false,
-                    "type": "Hi-shelf"
+                    "type": "Hi-pass"
                 },
                 "band3": {
                     "frequency": 42.82,
@@ -115,7 +115,7 @@
                     "q": 4.36,
                     "slope": "x1",
                     "solo": false,
-                    "type": "Bell"
+                    "type": "Hi-pass"
                 },
                 "band4": {
                     "frequency": 53.14,
@@ -202,7 +202,7 @@
                     "q": 4.36,
                     "slope": "x1",
                     "solo": false,
-                    "type": "Hi-shelf"
+                    "type": "Hi-pass"
                 },
                 "band10": {
                     "frequency": 194.06,
@@ -272,7 +272,7 @@
                     "q": 4.36,
                     "slope": "x1",
                     "solo": false,
-                    "type": "Hi-shelf"
+                    "type": "Hi-pass"
                 },
                 "band3": {
                     "frequency": 42.82,
@@ -282,7 +282,7 @@
                     "q": 4.36,
                     "slope": "x1",
                     "solo": false,
-                    "type": "Bell"
+                    "type": "Hi-pass"
                 },
                 "band4": {
                     "frequency": 53.14,

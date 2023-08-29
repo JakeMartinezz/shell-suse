@@ -83,6 +83,7 @@ function instalar_pacotes_flatpak() {
         com.vysp3r.ProtonPlus
         com.mattjakeman.ExtensionManager
         org.videolan.VLC
+        org.gabmus.hydrapaper
     )
 
     for package in "${packages[@]}"; do

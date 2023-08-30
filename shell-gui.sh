@@ -13,7 +13,7 @@ function aplicar_tema() {
     gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Lavender-Dark' &&
     gsettings set org.gnome.desktop.interface icon-theme 'Win11' &&
     gsettings set org.gnome.desktop.interface cursor-theme 'Win-8.1-S'
-gsettings set org.gnome.desktop.background picture-uri "file://$(pwd)/imagens/wallpaper.png"
+    gsettings set org.gnome.desktop.background picture-uri "file://$(pwd)/imagens/wallpaper.png"
 }
 
 function atualizar_funcoes_validas() {
@@ -214,14 +214,14 @@ function zenity_interface() {
     while true; do
         local selection=$(zenity --list --title="Shell-gui" --text="O que gostaria de fazer?" --column="Opções" "${valid_functions[@]}")
 
-        if [[ -n "$selection" ]]; then
+    if [[ -n "$selection" ]]; then
             # Executar a função selecionada
-            if [[ " ${valid_functions[@]} " =~ " ${selection} " ]]; then
+    if [[ " ${valid_functions[@]} " =~ " ${selection} " ]]; then
                 "$selection"
-            else
+    else
                 echo "Função inválida: $selection"
-            fi
-        else
+        fi
+    else
             break
         fi
     done

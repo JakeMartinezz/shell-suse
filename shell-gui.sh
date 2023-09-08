@@ -59,6 +59,7 @@ function instalar_pacotes() {
         steam
         htop
         neofetch
+        gamemode
         gamemoded
         libgamemode-devel
         libgamemode0

@@ -55,5 +55,8 @@ system:
   pulse_latency: true
 variables: {}
 version: Standalone
-wine: {}
+wine:
+  battleye: false
+  eac: false
+  fsr: false
 year: 2013

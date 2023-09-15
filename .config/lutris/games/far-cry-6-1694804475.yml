@@ -1,0 +1,13 @@
+game:
+  exe: /mnt/sdb1/Jogos/Pirata/Far Cry 6/bin/FarCry6.exe
+  prefix: /mnt/sdb1/Jogos/Prefixos/fc6
+system:
+  game_path: ''
+wine:
+  battleye: false
+  dxvk: false
+  eac: false
+  fsr: false
+  fsync: true
+  version: lutris-GE-Proton8-14-x86_64
+  vkd3d_version: vkd3d-proton-2.8

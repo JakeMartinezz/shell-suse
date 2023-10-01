@@ -27,6 +27,10 @@
   color: #FFFFFF;
 }
 
+#desktopwindow.background {
+  background-color: transparent;
+}
+
 dnd {
   color: #FFFFFF;
 }
@@ -1352,8 +1356,7 @@ splitbutton > separator {
 }
 
 splitbutton > menubutton > button {
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 6px 10px;
 }
 
 splitbutton.image-button > button {
@@ -1857,7 +1860,7 @@ button.combo:only-child:disabled {
 }
 
 .app-notification:backdrop, .toolbar.osd:backdrop {
-  box-shadow: 0 3px 2px -3px rgba(0, 0, 0, 0.2), 0 2px 2px -1px rgba(0, 0, 0, 0.24), 0 1px 3px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 3px -3px rgba(0, 0, 0, 0.2), 0 2px 2px -1px rgba(0, 0, 0, 0.24), 0 1px 3px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .left.app-notification, .right.app-notification, .top.app-notification, .bottom.app-notification, .toolbar.osd.left, .toolbar.osd.right, .toolbar.osd.top, .toolbar.osd.bottom {
@@ -2151,9 +2154,17 @@ headerbar.selection-mode .selection-menu .arrow {
 }
 
 headerbar.default-decoration {
-  min-height: 24px;
-  padding: 6px;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
+  min-height: 36px;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  background-image: image(#11111b);
+}
+
+headerbar.default-decoration:backdrop {
+  background-image: image(#1e1e2e);
 }
 
 headerbar.default-decoration windowcontrols button,
@@ -3227,7 +3238,7 @@ switch > slider {
   margin: 3px;
   border-radius: 9999px;
   outline: none;
-  box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.05), 0 2px 3px -1px rgba(0, 0, 0, 0.06), 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.05), 0 2px 3px -1px rgba(0, 0, 0, 0.06), 0 1px 4px 0 rgba(0, 0, 0, 0.05);
   background-color: white;
   border: none;
 }
@@ -5124,7 +5135,7 @@ tooltip {
 tooltip.background {
   background-color: rgba(11, 11, 18, 0.9);
   color: #FFFFFF;
-  box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.05), 0 2px 3px -1px rgba(0, 0, 0, 0.06), 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.05), 0 4px 6px 0 rgba(0, 0, 0, 0.06), 0 1px 10px 0 rgba(0, 0, 0, 0.05);
   border-radius: 6px;
   margin: 2px 6px 8px 6px;
 }
@@ -5228,7 +5239,7 @@ colorswatch#editor-color-sample overlay {
 }
 
 colorswatch#editor-color-sample overlay:hover {
-  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.24), 0 1px 2px -0.6px rgba(0, 0, 0, 0.17);
+  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.24), 0 1px 2px -1px rgba(0, 0, 0, 0.17);
 }
 
 colorchooser .popover.osd {
@@ -5239,7 +5250,7 @@ colorchooser .popover.osd {
 }
 
 colorchooser .popover.osd:backdrop {
-  box-shadow: 0 3px 2px -3px rgba(0, 0, 0, 0.2), 0 2px 2px -1px rgba(0, 0, 0, 0.24), 0 1px 3px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 3px -3px rgba(0, 0, 0, 0.2), 0 2px 2px -1px rgba(0, 0, 0, 0.24), 0 1px 3px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
 /********
@@ -5261,17 +5272,23 @@ window.csd {
   outline-offset: -1px;
   outline: 1px solid rgba(255, 255, 255, 0.1);
   margin: 0;
-  box-shadow: 0 8px 6px -5px rgba(0, 0, 0, 0.2), 0 16px 15px 2px rgba(0, 0, 0, 0.14), 0 6px 18px 5px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.75), 0 0 36px transparent;
+  transition: none;
+  box-shadow: 0 8px 6px -5px rgba(0, 0, 0, 0.2), 0 16px 15px 2px rgba(0, 0, 0, 0.14), 0 6px 18px 5px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.75), 0 2px 3px -1px rgba(0, 0, 0, 0), 0 4px 3px 0 rgba(0, 0, 0, 0), 0 1px 6px 0 rgba(0, 0, 0, 0);
 }
 
 window.csd:backdrop {
   transition: box-shadow 75ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 4px 3px 0 rgba(0, 0, 0, 0.18), 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.75), 0 0 36px transparent;
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 4px 3px 0 rgba(0, 0, 0, 0.18), 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.75), 0 8px 6px -5px rgba(0, 0, 0, 0), 0 16px 15px 2px rgba(0, 0, 0, 0), 0 6px 18px 5px rgba(0, 0, 0, 0);
 }
 
 window.csd.maximized, window.csd.fullscreen, window.csd.tiled, window.csd.tiled-top, window.csd.tiled-right, window.csd.tiled-bottom, window.csd.tiled-left {
   border-radius: 0;
   transition: none;
+}
+
+window.csd.maximized, window.csd.fullscreen {
+  box-shadow: none;
+  outline: none;
 }
 
 window.solid-csd {
@@ -5284,10 +5301,6 @@ window.solid-csd {
 
 window.solid-csd:backdrop {
   background-color: #1e1e2e;
-}
-
-window.ssd {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 windowcontrols button:not(.suggested-action):not(.destructive-action) {
@@ -5314,7 +5327,7 @@ windowcontrols button.minimize:active:not(.suggested-action):not(.destructive-ac
 }
 
 windowcontrols button.minimize:hover:not(.suggested-action):not(.destructive-action), windowcontrols button.minimize:active:not(.suggested-action):not(.destructive-action), windowcontrols button.maximize:hover:not(.suggested-action):not(.destructive-action), windowcontrols button.maximize:active:not(.suggested-action):not(.destructive-action), windowcontrols button.close:hover:not(.suggested-action):not(.destructive-action), windowcontrols button.close:active:not(.suggested-action):not(.destructive-action) {
-  color: white;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 windowcontrols button.minimize:backdrop:not(.suggested-action):not(.destructive-action), windowcontrols button.maximize:backdrop:not(.suggested-action):not(.destructive-action), windowcontrols button.close:backdrop:not(.suggested-action):not(.destructive-action) {
@@ -5577,7 +5590,7 @@ popover.entry-completion > contents {
   border-radius: 6px;
   background-color: #b4befe;
   color: rgba(0, 0, 0, 0.87);
-  box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.05), 0 2px 3px -1px rgba(0, 0, 0, 0.06), 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.05), 0 2px 3px -1px rgba(0, 0, 0, 0.06), 0 1px 4px 0 rgba(0, 0, 0, 0.05);
 }
 
 .nautilus-window .floating-bar button {
@@ -6108,6 +6121,13 @@ screenshot-carousel button,
   padding: 3px 9px;
 }
 
+flowboxchild.card {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  background: none;
+}
+
 button.card.category-tile {
   padding: 21px;
   border: none;
@@ -6115,6 +6135,7 @@ button.card.category-tile {
   min-width: 140px;
   font-weight: 900;
   font-size: larger;
+  box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.05), 0 2px 3px -1px rgba(0, 0, 0, 0.06), 0 1px 4px 0 rgba(0, 0, 0, 0.05);
 }
 
 button.card.category-tile.category-tile-iconless {
@@ -6122,6 +6143,7 @@ button.card.category-tile.category-tile-iconless {
   min-width: 130px;
   font-size: 105%;
   font-weight: normal;
+  box-shadow: none;
 }
 
 button.card.category-tile.category-create {
@@ -6225,7 +6247,6 @@ clamp.large .category-tile:not(.category-tile-iconless) {
 }
 
 .featured-tile {
-  all: unset;
   padding: 0;
   box-shadow: none;
   color: #FFFFFF;
@@ -6662,11 +6683,15 @@ window > contents > leaflet > box > stack.background {
 .forecast-card {
   transition: border-radius 100ms ease-out;
   border-radius: 6px;
-  border-width: 1px 0;
 }
 
 .forecast-card separator {
   background-color: rgba(255, 255, 255, 0.12);
+}
+
+#daily-forecast-box > separator:last-child {
+  background-color: transparent;
+  min-width: 0;
 }
 
 #conditions-grid,
@@ -6679,6 +6704,7 @@ window > contents > leaflet > box > stack.background {
   margin-left: 0;
   margin-right: 0;
   border-radius: 0;
+  border-width: 1px 0;
 }
 
 .forecast-temperature-label {
@@ -6939,6 +6965,15 @@ panelstatusbar > paneltogglebutton button {
 
 .style-variant button.toggle:checked > stylevariantpreview > .wallpaper {
   outline-color: #b4befe;
+}
+
+playlistview scrollbar.overlay-indicator.dragging, playlistview scrollbar.overlay-indicator.hovering {
+  background-color: transparent;
+}
+
+playlistview queuerow picture.cover,
+playlistview queuerow image.card {
+  border: none;
 }
 
 window.dialog > .dialog-vbox > box > scrolledwindow > viewport > widget > list.boxed-list {

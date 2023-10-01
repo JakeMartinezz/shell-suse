@@ -54,10 +54,10 @@ function copiar_tema() {
 
 function instalar_pacotes() {
     local packages=(
-        lutris
         bleachbit
         steam
         htop
+        lutris
         neofetch
         gamemode
         gamemoded

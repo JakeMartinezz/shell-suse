@@ -1,0 +1,13 @@
+game:
+  arch: win64
+  args: -nogamepad
+  exe: /home/jake/Downloads/Cyberpunk 2077/bin/x64/Cyberpunk2077.exe
+  prefix: /mnt/sdb1/Jogos/Prefixos/cyberpunk
+system: {}
+wine:
+  battleye: false
+  dxvk: true
+  dxvk_version: dxvk-async-2.0
+  eac: false
+  fsr: false
+  vkd3d_version: vkd3d-proton-2.10

@@ -48,8 +48,6 @@ function copiar_tema() {
     sudo cp ./BetterDiscord/app.asar /usr/lib64/discord/resources &&
     mkdir -p ~/.local/share/gedit/styles &&
     cp -r styles ~/.local/share/gedit &&
-    mkdir -p "$HOME/.local/share/fonts/Microsoft/TrueType/Segoe UI" &&
-    cp -a ./fonte/. "$HOME/.local/share/fonts/Microsoft/TrueType/Segoe UI" &&
     cp -r .bashrc /home/$USER/ &&
     cp -r .zshrc /home/$USER/
 }

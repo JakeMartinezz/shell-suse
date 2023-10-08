@@ -1,5 +1,5 @@
 game:
-  exe: /mnt/sdb1/Jogos/Pirata/Far Cry 6/bin/FarCry6.exe
+  exe: /home/jake/Downloads/Save Editor (Project CyberCAT-SimpleGUI) (AIO)-718-0-26b-1695935984/CP2077SaveEditor.exe
   prefix: /mnt/sdb1/Jogos/Prefixos/fc6
 system:
   game_path: ''

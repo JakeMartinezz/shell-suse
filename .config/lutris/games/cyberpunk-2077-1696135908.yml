@@ -1,8 +1,8 @@
 game:
   arch: win64
   args: -nogamepad
-  exe: /home/jake/Downloads/Cyberpunk 2077/bin/x64/Cyberpunk2077.exe
-  prefix: /mnt/sdb1/Jogos/Prefixos/cyberpunk
+  exe: /mnt/discos/Jogos/Pirata/Cyberpunk 2077/bin/x64/Cyberpunk2077.exe
+  prefix: /mnt/discos/Jogos/Prefixos/cyberpunk
 system: {}
 wine:
   battleye: false

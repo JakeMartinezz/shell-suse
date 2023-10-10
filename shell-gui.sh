@@ -86,6 +86,7 @@ function instalar_pacotes_flatpak() {
         com.mattjakeman.ExtensionManager
         org.videolan.VLC
         org.gabmus.hydrapaper
+	hu.kramo.Cartridges
     )
 
     for package in "${packages[@]}"; do

@@ -161,6 +161,7 @@ function remover_pacotes() {
         baobab
         gpk-update-viewer
         tigervnc
+        PackageKit
     )
 
     for package in "${packages[@]}"; do

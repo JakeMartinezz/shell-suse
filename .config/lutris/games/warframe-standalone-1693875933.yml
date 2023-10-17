@@ -49,7 +49,7 @@ system:
     PBA_DISABLE: '0'
     WINEDLLOVERRIDES: libglesv2=d
     __GL_SHADER_DISK_CACHE: '1'
-    __GL_SHADER_DISK_CACHE_PATH: /mnt/sdb1/Jogos/Prefixos/warframe
+    __GL_SHADER_DISK_CACHE_PATH: /mnt/discos/Jogos/Prefixos/warframe
     __GL_THREADED_OPTIMIZATIONS: '1'
     mesa_glthread: 'true'
   pulse_latency: true

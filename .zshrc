@@ -5,8 +5,10 @@ PROMPT="%F{#FFFFFF}╭─%F{#af00d1}%n %{%F{#808080}%}em %F{#008000}%B%~%b%f
 alias update='sudo zypper dup'
 
 # games
-alias warframe='nohup /usr/bin/lutris lutris:rungameid/1 > /dev/null 2>&1 &'
-alias cyberpunk='nohup /usr/bin/lutris lutris:rungameid/3 > /dev/null 2>&1 &'
+alias warframe='nohup lutris lutris:rungame/warframe > /dev/null 2>&1 &'
+alias cyberpunk='nohup lutris lutris:rungame/cyberpunk-2077 > /dev/null 2>&1 &'
+alias theforest='nohup lutris lutris:rungame/sons-of-the-forest > /dev/null 2>&1 &'
+alias sekiro='nohup lutris lutris:rungame/sekirotm-shadows-die-twice > /dev/null 2>&1 &'
 
 # git
 

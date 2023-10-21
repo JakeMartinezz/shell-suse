@@ -228,7 +228,7 @@ function zenity_interface() {
     else
             break
         fi
-    done
+    done &
 }
 
 # Selecionar Distribuição

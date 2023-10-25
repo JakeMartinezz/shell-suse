@@ -15,7 +15,9 @@ alias sekiro='nohup lutris lutris:rungame/sekirotm-shadows-die-twice > /dev/null
 alias addup='git add -u'
 alias addall='git add .'
 alias branch='git branch'
-alias commit='git commit -m'
+commit() {
+    git commit -m "$*"
+}
 alias fetch='git fetch'
 alias pull='git pull origin'
 alias status='git status'
